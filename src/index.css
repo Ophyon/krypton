@@ -5,10 +5,26 @@ body {
 
 .topElement {
   user-select: none;
+  padding: 3%;
+  color:rgb(168, 168, 168);
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 150%;
+  transition: font-size 2s filter 2s;
+}
+.hiddenlang {
+    display: none;
+    transition: display 5s;
 }
 .topElement:hover {
   filter: brightness(120%);
+  font-size: 160%;
 }
+.topElement:hover ~ .hiddenlang{
+    display: inline;
+    font-size:100%;
+}
+
+
 
 .light {
   position: absolute;
