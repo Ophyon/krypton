@@ -24,7 +24,10 @@ body {
     font-size:100%;
 }
 
-
+.topElement svg {
+  height: 1em;
+  width: 1em;
+}
 
 .light {
   position: absolute;
