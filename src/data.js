@@ -34,6 +34,17 @@ function printf(text:string) {
         `
     },
     {
+        name: "whistle",
+        icon: "📜",
+        code: `
+fun printf(text: string): none {
+  #(js) console.log(text);
+}
+
+printf("Hello, World!")
+        `
+    },
+    {
         name: "java",
         icon: "☕",
         code: `

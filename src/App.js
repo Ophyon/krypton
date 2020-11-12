@@ -1,19 +1,22 @@
 import React from "react";
 import MonacoEditor from "react-monaco-editor";
 import { saveSync } from "save-file";
+import { WhistleLanguageDef } from "./languages/WhistleConfig"
 import { LanguageData } from "./data"
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            code: `
-      function test() {
-          console.log("hi")
-      }
-      `,
+            code: LanguageData[0].code,
             theme: "vs-dark",
             language: 0
         };
+    }
+    editorWillMount = (monaco) => {
+        monaco.languages.register({
+            id: 'whistle'
+        });
+        monaco.languages.setMonarchTokensProvider('whistle', WhistleLanguageDef);
     }
     editorDidMount = (editor, monaco) => {
         const params = new URLSearchParams(window.location.search)
@@ -88,6 +91,7 @@ class App extends React.Component {
                     value={code}
                     options={options}
                     onChange={this.onChange}
+                    editorWillMount={this.editorWillMount}
                     editorDidMount={this.editorDidMount}
                     theme={theme}
                 />
